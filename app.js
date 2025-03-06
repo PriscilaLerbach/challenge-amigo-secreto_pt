@@ -1,41 +1,62 @@
-//O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
+// Lista que armazena os amigos adicionados
 let amigos = [];
 
+// Função para adicionar um amigo à lista
 function adicionarAmigo() {
     let inputAmigo = document.getElementById("amigo");
-    let nomeAmigo = inputAmigo.value;
-
-    if(!nomeAmigo) {
-        alert("Digite o nome do amigo");
+    let nomeAmigo = inputAmigo.value.trim(); // Remove espaços extras
+    
+    if (!nomeAmigo) {
+        alert("⚠️ Digite o nome do amigo!");
         return;
     }
-    amigos.push(nomeAmigo);
-    inputAmigo.value = "";
-    inputAmigo.focus();
-    atualizarlista();
+
+    if (amigos.includes(nomeAmigo)) {
+        alert("⚠️ Esse amigo já foi adicionado!");
+        return;
+    }
+
+    amigos.push(nomeAmigo); // Adiciona o amigo na lista
+    inputAmigo.value = ""; // Limpa o campo de entrada
+    inputAmigo.focus(); // Mantém o foco no input
+    atualizarLista(); // Atualiza a exibição da lista
 }
 
-function atualizarlista(){
+// Função para atualizar a lista na tela
+function atualizarLista() {
     let listaAmigos = document.getElementById("listaAmigos");
-    listaAmigos.innerHTML = "";
+    listaAmigos.innerHTML = ""; // Limpa a lista
 
-    for(let i = 0; i < amigos.length; i++){
+    amigos.forEach((amigo, index) => {
         let item = document.createElement("li");
-        item.textContent = amigos[i];
+        item.innerHTML = `👤 ${amigo} <button onclick="removerAmigo(${index})">❌</button>`;
         listaAmigos.appendChild(item);
+    });
+}
 
-    }
- }
- function sortearAmigo(){
-    if(amigos.length === 0){
-        alert("Nenhum amigo adicionado");
+// Função para remover um amigo da lista
+function removerAmigo(index) {
+    amigos.splice(index, 1); // Remove o amigo da lista pelo índice
+    atualizarLista(); // Atualiza a exibição
+}
+
+// Função para sortear um amigo
+function sortearAmigo() {
+    if (amigos.length === 0) {
+        alert("⚠️ Nenhum amigo na lista para sortear!");
         return;
     }
-    let sorteado = amigos[Math.floor(Math.random() * amigos.length)];
-    let resultado = document.getElementById("resultado");
-    resultado.innerHTML = `O amigo sorteado foi: ${sorteado}`;
 
-    let limparLista = document.getElementById("listaAmigod");
-    limparLista.innerHTML = "";
-    amigos = [];
- }
+    let sorteadoIndex = Math.floor(Math.random() * amigos.length); // Sorteia um índice aleatório
+    let sorteado = amigos[sorteadoIndex]; // Pega o amigo correspondente
+
+    document.getElementById("resultado").innerHTML = `<span class="success">🎉 O amigo sorteado foi: <b>${sorteado}</b>!</span>`;
+
+    amigos.splice(sorteadoIndex, 1); // Remove o sorteado da lista
+    atualizarLista(); // Atualiza a exibição da lista
+
+    // Verifica se todos foram sorteados
+    if (amigos.length === 0) {
+        alert("🎊 Todos os amigos foram sorteados!");
+    }
+}
