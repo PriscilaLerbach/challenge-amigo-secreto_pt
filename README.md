@@ -1,4 +1,7 @@
-<h1 align="center"> Challenge Amigo Secreto </h1>
+<h1 align="center"> Challenge Amigo Secreto </h1> 
+<div align="center">
+<img src="https://github.com/user-attachments/assets/f6f06f0e-2062-4605-b3eb-60a80f6825d4" width="350">
+</div>
 <p align="center"> O sistema realiza sorteio aleatório de um amigo entre os participantes.</p>
 
 <h2>Exibição das informações:</h2>
@@ -14,7 +17,6 @@
 - **Imagens**: Ícones e imagens utilizadas na interface.
 
 ## Passo a Passo:
-- **Acesse o site do sorteio**: http://127.0.0.1:5500/challenge-amigo-secreto_pt-main/index.html
+- **Acesse o site do sorteio**: Abrindo o arquivo index.html.
 - **Adicione os participantes**: Coloque o nome do amigo participante e clique em adicionar, repita o processo com todos que irão participar.
 - **Sortear Amigo**: Clique em sortear amigo e descubra o amigo secreto.
-- 
