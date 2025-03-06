@@ -17,6 +17,6 @@
 - **Imagens**: Ícones e imagens utilizadas na interface.
 
 ## Passo a Passo:
-- **Acesse o site do sorteio**: Abrindo o arquivo index.html.
+- **Acesse o site do sorteio**: https://priscilalerbach.github.io/challenge-amigo-secreto_pt/
 - **Adicione os participantes**: Coloque o nome do amigo participante e clique em adicionar, repita o processo com todos que irão participar.
 - **Sortear Amigo**: Clique em sortear amigo e descubra o amigo secreto.
